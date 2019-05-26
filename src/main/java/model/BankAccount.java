@@ -17,9 +17,12 @@ public class BankAccount {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long accountNumber;
+    private Long id;
+
+    private String accountNumber;
     private Long balance;
     private int freeFunds;
+    @Enumerated(EnumType.STRING)
     private Currency currency;
 
     @ManyToOne

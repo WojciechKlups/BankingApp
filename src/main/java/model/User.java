@@ -27,7 +27,6 @@ public class User {
     @Email
     private String email;
     private String password;
-    List<BankAccount> bankAccounts;
 
     @OneToMany (mappedBy = "owner")
     private Set<BankAccount> accounts;

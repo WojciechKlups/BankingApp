@@ -6,11 +6,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
 <body>
-<h1>U mie dziaa</h1>
+<h1>Strona główna banku</h1>
+<div>
+    <a href="login.jsp">Link do strony logowania</a>
+</div>
+<div>
+    <a href="account.jsp">Link do konta bankowego</a>
+</div>
+<footer>M&W Copyright</footer>
+
 </body>
-</html>

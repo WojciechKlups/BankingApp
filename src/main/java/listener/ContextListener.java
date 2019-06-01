@@ -24,10 +24,14 @@ public class ContextListener implements ServletContextListener {
         User user = User.builder()
                 .firstname("Wojciech")
                 .lastname("Klupś")
+                .email("wojciechklups@gmail.com")
+                .password("1234")
                 .build();
         User user1 = User.builder()
                 .firstname("Andrzej")
                 .lastname("Kowalski")
+                .email("kowalski@onet.pl")
+                .password("0987")
                 .build();
         repository.create(user1);
         repository.create(user);

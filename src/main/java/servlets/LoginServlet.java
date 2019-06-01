@@ -1,11 +1,8 @@
 package servlets;
 
-import listener.ContextListener;
-import model.User;
-import org.hibernate.Session;
-import util.HibernateUtil;
 
-import javax.naming.Context;
+import model.User;
+import repository.UserRepository;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,27 +10,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Optional;
 
 @WebServlet(name = "LoginServlet", urlPatterns = "/loginServlet")
 public class LoginServlet extends HttpServlet {
+
+    private UserRepository userRepository = new UserRepository();
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(true);
-        Object email = session.getAttribute("email");
-        Object password = session.getAttribute("password");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
 
-        String email1 = request.getParameter("email");
-        String password1 = request.getParameter("password");
-
-
-        if(email.equals(email1) && password.equals(password1)) {
-
-            session.setAttribute("email", email);
-            session.setAttribute("password", password);
-            response.sendRedirect("/account.jsp");
+        Optional<User> byEmail = userRepository.findByEmail(email);
+        if (byEmail.isPresent()) {
+            User user = byEmail.get();
+            if (user.getPassword().equals(password)) {
+                session.setAttribute("email", email);
+                response.sendRedirect("/myAccountServlet");
+            }
         }
-
     }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }

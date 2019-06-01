@@ -28,7 +28,7 @@ public class User {
     private String email;
     private String password;
 
-    @OneToMany (mappedBy = "owner")
+    @OneToMany (fetch = FetchType.EAGER)
     private Set<BankAccount> accounts;
 
 

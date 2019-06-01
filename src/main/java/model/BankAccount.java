@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Data
@@ -25,6 +24,6 @@ public class BankAccount {
     @Enumerated(EnumType.STRING)
     private Currency currency;
 
-    @ManyToOne
-    private User owner;
+//    @ManyToOne (fetch = FetchType.LAZY)
+//    private User owner;
 }

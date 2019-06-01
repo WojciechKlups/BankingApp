@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
         } else {
             System.err.println("There's no such user!");
             response.sendRedirect("/index.jsp");
-        }
+       }
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

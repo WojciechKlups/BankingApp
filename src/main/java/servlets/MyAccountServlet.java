@@ -23,7 +23,6 @@ public class MyAccountServlet extends HttpServlet {
         Object email = session.getAttribute("email");
         Optional<User> loggedUser = userRepository.findByEmail((String) email);
 
-
         loggedUser.ifPresent(user -> request.setAttribute("user", user));
 
         request.getRequestDispatcher("/account.jsp").forward(request, response);

@@ -34,7 +34,7 @@ public class ContextListener implements ServletContextListener {
                 .freeFunds(3456)
                 .currency(Currency.ZLOTY)
                 .build();
-        
+
         repository1.create(bankAccount);
         repository1.create(bankAccount1);
 

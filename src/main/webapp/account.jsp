@@ -14,49 +14,71 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <c:set scope="page" var="user" value="${requestScope.get('user')}"/>
-    <div class="row">
-        <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-            <A href="edit.html" >Edit Profile</A>
-            <br>
-            <A href="/logoutServlet" >Logout</A>
-            <br>
-            <p class=" text-info">May 05,2014,03:00 pm </p>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+<c:set scope="page" var="account" value="${user.accounts}"/>
+<div class="row">
+    <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+        <A href="edit.html">Edit Profile</A>
+        <br>
+        <A href="/logoutServlet">Logout</A>
+        <br>
+        <p class=" text-info">May 05,2014,03:00 pm </p>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
 
 
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h3 class="panel-title">${user.firstname} 's account</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class=" col-md-9 col-lg-9 ">
-                            <table class="table table-user-information">
-                                <tbody>
-                                <tr>
-                                    <td>First name:</td>
-                                    <td>${user.firstname}</td>
-                                </tr>
-                                <tr>
-                                    <td>Last name:</td>
-                                    <td>${user.lastname}</td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td><a href="mailto:${user.email}">${user.email}</a></td>
-                                </tr>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">${user.firstname} 's account</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class=" col-md-9 col-lg-9 ">
+                        <table class="table table-user-information">
+                            <tbody>
+                            <tr>
+                                <td>First name:</td>
+                                <td>${user.firstname}</td>
+                            </tr>
+                            <tr>
+                                <td>Last name:</td>
+                                <td>${user.lastname}</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td><a href="mailto:${user.email}">${user.email}</a></td>
+                            </tr>
+                            <tr>
+                                <td>Account details</td>
+                                <td></td>
+                            </tr>
+                            <c:forEach var="accountItem" items="${account}">
                                 <tr>
                                     <td>Account number</td>
-                                    <td>${user.accounts.accountNumber}</td>
+                                    <td><c:out value="${accountItem.accountNumber}"/>
+                                    </td>
                                 </tr>
-                                </tbody>
-                            </table>
-
-                        </div>
+                                <tr>
+                                    <td>Balance</td>
+                                    <td><c:out value="${accountItem.balance}"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Free funds</td>
+                                    <td><c:out value="${accountItem.freeFunds}"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Currency</td>
+                                    <td><c:out value="${accountItem.currency}"/>
+                                </td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>

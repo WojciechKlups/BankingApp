@@ -15,13 +15,14 @@
 
 <c:set scope="page" var="user" value="${requestScope.get('user')}"/>
 <c:set scope="page" var="account" value="${user.accounts}"/>
+<c:set scope="page" var="datetime" value="${LocalDateTime.now}"/>
 <div class="row">
     <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
         <A href="edit.html">Edit Profile</A>
         <br>
         <A href="/logoutServlet">Logout</A>
         <br>
-        <p class=" text-info">May 05,2014,03:00 pm </p>
+        <p class=" text-info">${LocalDateTime.now}</p>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
 

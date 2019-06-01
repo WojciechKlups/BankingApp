@@ -14,6 +14,5 @@
 <div>
     <a href="account.jsp">Link do konta bankowego</a>
 </div>
-<footer>M&W Copyright</footer>
 
 </body>

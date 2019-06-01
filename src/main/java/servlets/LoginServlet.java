@@ -29,6 +29,9 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("email", email);
                 response.sendRedirect("/myAccountServlet");
             }
+        } else {
+            System.err.println("There's no such user!");
+            response.sendRedirect("/index.jsp");
         }
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

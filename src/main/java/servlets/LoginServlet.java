@@ -16,7 +16,13 @@ import java.util.Optional;
 @WebServlet(name = "LoginServlet", urlPatterns = "/loginServlet")
 public class LoginServlet extends HttpServlet {
 
-    private UserRepository userRepository = new UserRepository();
+    private UserRepository userRepository;
+
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        userRepository = new UserRepository();
+    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(true);

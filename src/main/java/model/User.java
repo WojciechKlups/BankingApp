@@ -29,9 +29,10 @@ public class User {
     private String email;
     private String password;
 
+    private String activationCode;
+    private boolean activated;
+
     @OneToMany (fetch = FetchType.EAGER)
     private Set<BankAccount> accounts;
-
-
 
 }

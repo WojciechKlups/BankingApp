@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Wojtek
-  Date: 26.05.2019
-  Time: 13:40
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -26,13 +20,25 @@
             <div class="middle">
                 <div id="login">
 
-                    <form action="javascript:void(0);" method="get">
+                    <form action="/registration.jsp" method="post">
 
                         <fieldset class="clearfix">
 
                             <div>
-                                <span style="width:48%; text-align:left;  display: inline-block;"><input type="submit" value="Register"</span>
-                                <span style="width:50%; text-align:right;  display: inline-block;"><input type="submit" value="Login"></span>
+                                <span style="width:48%; text-align:left;  display: inline-block;"><input type="submit"
+                                                                                                         value="Register">
+                                </span>
+                            </div>
+                        </fieldset>
+                        <div class="clearfix"></div>
+                    </form>
+                    <form action="/login.jsp" method="post">
+
+                        <fieldset class="clearfix">
+                            <div>
+                                <span style="width:50%; text-align:right;  display: inline-block;"><input type="submit"
+                                                                                                          value="Login"
+                                ></span>
                             </div>
 
                         </fieldset>

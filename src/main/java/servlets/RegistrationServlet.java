@@ -33,7 +33,7 @@ public class RegistrationServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            User newUser = createUserFromParameters(request);
+        User newUser = createUserFromParameters(request);
         BankAccount newBankAccount = createBankAccount(newUser);
         bankAccountRepository.create(newBankAccount);
         userRepository.create(newUser);
@@ -42,8 +42,8 @@ public class RegistrationServlet extends HttpServlet {
         } catch (EmailException e) {
             System.out.println("Email is not valid");
             e.printStackTrace();
+            response.sendRedirect("/myAccountServlet");
         }
-        response.sendRedirect("/myAccountServlet");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

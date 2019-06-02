@@ -1,6 +1,7 @@
 package servlets;
 
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import model.User;
 import repository.UserRepository;
 import javax.servlet.ServletException;
@@ -27,8 +28,13 @@ public class LoginServlet extends HttpServlet {
             User user = byEmail.get();
             if (user.getPassword().equals(password)) {
                 session.setAttribute("email", email);
-                response.sendRedirect("/myAccountServlet");
+            }   if (Boolean.parseBoolean(request.getParameter("remember-me"))){
+                session.setMaxInactiveInterval(3600);
+            } else {
+                session.setMaxInactiveInterval(60);
+                System.err.println("Session time expired!");
             }
+            response.sendRedirect("/myAccountServlet");
         } else {
             System.err.println("There's no such user!");
             response.sendRedirect("/index.jsp");

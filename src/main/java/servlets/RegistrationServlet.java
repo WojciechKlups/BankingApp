@@ -1,6 +1,6 @@
 package servlets;
 
-import emailService.EmailService;
+import services.EmailService;
 import model.BankAccount;
 import model.Currency;
 import model.User;
@@ -8,18 +8,19 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.mail.EmailException;
 import repository.BankAccountRepository;
 import repository.UserRepository;
+import services.HashingService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Collections;
 
 @WebServlet(name = "RegistrationServlet", urlPatterns = "/registrationServlet")
 public class RegistrationServlet extends HttpServlet {
+    private HashingService hashingService;
     private EmailService service;
     private UserRepository userRepository;
     private BankAccountRepository bankAccountRepository;
@@ -28,6 +29,7 @@ public class RegistrationServlet extends HttpServlet {
     public void init() throws ServletException {
         super.init();
         service = new EmailService();
+        hashingService = new HashingService();
         userRepository = new UserRepository();
         bankAccountRepository = new BankAccountRepository();
     }
@@ -39,10 +41,11 @@ public class RegistrationServlet extends HttpServlet {
         userRepository.create(newUser);
         try {
             service.sendEmail(newUser);
+            response.sendRedirect("/login.jsp");
         } catch (EmailException e) {
             System.out.println("Email is not valid");
             e.printStackTrace();
-            response.sendRedirect("/myAccountServlet");
+            response.sendRedirect("/registrationServlet");
         }
     }
 
@@ -56,12 +59,15 @@ public class RegistrationServlet extends HttpServlet {
         String lastname = request.getParameter("lastname");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String salt = "123";
+        String hashedPassword = hashingService.getHashedPassword(password, salt);
         String newActivationCode = RandomStringUtils.randomAlphanumeric(20);
         return User.builder()
                 .firstname(firstname)
                 .lastname(lastname)
                 .email(email)
-                .password(password)
+                .password(hashedPassword)
+                .salt(salt)
                 .activated(false)
                 .activationCode(newActivationCode)
                 .build();

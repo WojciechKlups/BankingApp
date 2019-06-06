@@ -26,7 +26,7 @@
 
                             <div>
                                 <span style="width:48%; text-align:left;  display: inline-block;"><input type="submit"
-                                                                                                         value="Register">
+                                                                                                         value="Zarejestruj się">
                                 </span>
                             </div>
                         </fieldset>
@@ -37,7 +37,7 @@
                         <fieldset class="clearfix">
                             <div>
                                 <span style="width:50%; text-align:right;  display: inline-block;"><input type="submit"
-                                                                                                          value="Login"
+                                                                                                          value="Zaloguj się"
                                 ></span>
                             </div>
 

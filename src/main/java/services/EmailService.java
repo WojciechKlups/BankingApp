@@ -1,4 +1,4 @@
-package emailService;
+package services;
 
 import model.User;
 import org.apache.commons.mail.Email;

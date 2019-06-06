@@ -41,7 +41,7 @@ public class RegistrationServlet extends HttpServlet {
         userRepository.create(newUser);
         try {
             service.sendEmail(newUser);
-            response.sendRedirect("/login.jsp");
+            response.sendRedirect("/index.jsp");
         } catch (EmailException e) {
             System.out.println("Email is not valid");
             e.printStackTrace();

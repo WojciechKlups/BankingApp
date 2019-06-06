@@ -25,8 +25,7 @@
                         <fieldset class="clearfix">
 
                             <div>
-                                <span style="width:48%; text-align:left;  display: inline-block;"><input type="submit"
-                                                                                                         value="Register me">
+                                <span style="width:48%; text-align:left;  display: inline-block;"><input type="submit" value="Register me">
                                 </span>
                             </div>
                         </fieldset>
@@ -36,8 +35,7 @@
 
                         <fieldset class="clearfix">
                             <div>
-                                <span style="width:50%; text-align:right;  display: inline-block;"><input type="submit"
-                                                                                                          value="Log in"
+                                <span style="width:50%; text-align:right;  display: inline-block;"><input type="submit" value="Log in"
                                 ></span>
                             </div>
 

@@ -29,7 +29,7 @@
                             <input type="password" name="password" id="password" class="form-control">
                         </div>
                         <div class="form-group">
-                            <input type="submit" name="register" class="btn btn-info btn-md" value="Register me">
+                            <input type="submit" name="register" class="btn btn-info btn-md" value="Register me" onclick="alert('User has been registered')">
                         </div>
                         <div id="register-link" class="text-right">
                             <a href="index.jsp" class="text-info">Go back</a>

@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
                 response.sendRedirect("/myAccountServlet");
             } else {
                 System.err.println("Password is invalid!");
-                response.sendRedirect("/loginServlet");
+                response.sendRedirect("/login.jsp");
             }
         } else {
             System.err.println("There's no such user!");

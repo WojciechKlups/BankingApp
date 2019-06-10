@@ -7,9 +7,11 @@ import model.Currency;
 import model.User;
 import repository.BankAccountRepository;
 import repository.UserRepository;
+import services.HashingService;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebListener;
 import java.util.Collections;
 
@@ -17,6 +19,7 @@ import java.util.Collections;
 @Slf4j
 public class ContextListener implements ServletContextListener {
 
+    private HashingService hashingService = new HashingService();
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
@@ -42,18 +45,23 @@ public class ContextListener implements ServletContextListener {
         log.info("Creating bank account with details {}", bankAccount1);
 
         final UserRepository repository = new UserRepository();
+        String salt = "123";
+        String hashedPassword = hashingService.getHashedPassword("1234", salt);
         User user = User.builder()
                 .firstname("Wojciech")
                 .lastname("Klupś")
                 .email("wojciechklups@gmail.com")
-                .password("1234")
+                .password(hashedPassword)
+                .salt(salt)
                 .accounts(Collections.singleton(bankAccount))
                 .build();
+        String hashedPassword2 = hashingService.getHashedPassword("0987", salt);
         User user1 = User.builder()
                 .firstname("Andrzej")
                 .lastname("Kowalski")
                 .email("kowalski@onet.pl")
-                .password("0987")
+                .password(hashedPassword2)
+                .salt(salt)
                 .accounts(Collections.singleton(bankAccount1))
                 .build();
         repository.create(user1);

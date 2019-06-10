@@ -23,19 +23,17 @@
                     <form action="/registration.jsp" method="post">
 
                         <fieldset class="clearfix">
-
                             <div>
                                 <span style="width:48%; text-align:left;  display: inline-block;"><input type="submit" value="Register me">
                                 </span>
                             </div>
                         </fieldset>
-                        <div class="clearfix"></div>
                     </form>
                     <form action="/login.jsp" method="post">
 
                         <fieldset class="clearfix">
                             <div>
-                                <span style="width:50%; text-align:right;  display: inline-block;"><input type="submit" value="Log in"
+                                <span style="width:50%; text-align:center;  display: inline-block;"><input type="submit" value="Log in"
                                 ></span>
                             </div>
 

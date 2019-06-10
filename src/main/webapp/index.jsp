@@ -14,9 +14,13 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="/style.css">
 <div class="main">
-
     <div class="container">
         <center>
+            <div style="position: relative; width: 400px; height: 30px; color: white; font-size: 15px;top: -150px;left: 100px;">
+                <div style="position: absolute; top: 5px; color: white">
+                    Banking in Simple Bank is simple. Simple?
+                </div>
+            </div>
             <div class="middle">
                 <div id="login">
 

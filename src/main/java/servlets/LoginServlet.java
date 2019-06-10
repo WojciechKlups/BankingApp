@@ -43,7 +43,6 @@ public class LoginServlet extends HttpServlet {
                     session.setMaxInactiveInterval(3600);
                 } else {
                     session.setMaxInactiveInterval(60);
-                    System.err.println("Session time expired!");
                 }
                 response.sendRedirect("/myAccountServlet");
             } else {

@@ -20,35 +20,35 @@
             <div class="middle">
                 <div id="login">
 
-                    <form action="/registration.jsp" method="post">
+                    <form action="/login.jsp" method="post">
+                        <fieldset class="clearfix" style="padding-top: 65px;">
+                            <div>
+                                <span style="width:50%; text-align:center;  display: inline-block;"><input type="submit" value="Log in"
+                                ></span>
+                            </div>
+                        </fieldset>
+                    </form>
 
-                        <fieldset class="clearfix">
+                    <form action="/registration.jsp" method="post">
+                        <fieldset class="clearfix" style="padding-top: 50px;">
                             <div>
                                 <span style="width:48%; text-align:left;  display: inline-block;"><input type="submit" value="Register me">
                                 </span>
                             </div>
                         </fieldset>
                     </form>
-                    <form action="/login.jsp" method="post">
-
-                        <fieldset class="clearfix">
-                            <div>
-                                <span style="width:50%; text-align:center;  display: inline-block;"><input type="submit" value="Log in"
-                                ></span>
-                            </div>
-
-                        </fieldset>
-                        <div class="clearfix"></div>
-                    </form>
-
-                    <div class="clearfix"></div>
 
                 </div> <!-- end login -->
                 <div class="logo">SIMPLE BANK
 
                     <div class="clearfix"></div>
                 </div>
+            </div>
+            <div style="position: relative; width: 60px; height: 30px;top: 200px;">
 
+                <div style="position: absolute; bottom: 5px; color: white">
+                    Wojciech Klupś (C) 2019
+                </div>
             </div>
         </center>
     </div>

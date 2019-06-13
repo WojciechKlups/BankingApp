@@ -18,11 +18,11 @@ public class EmailService {
     public void sendEmail(User user) throws EmailException {
         try {
             Email email = new SimpleEmail();
-            email.setSmtpPort(587);
             email.setHostName("smtp.gmail.com");
+            email.setSmtpPort(465);
             email.setAuthentication(username, password);
+            email.setSSLOnConnect(true);
             email.setStartTLSEnabled(true);
-//        email.setSSLOnConnect(true);
             email.setFrom("java13poz@gmail.com", "JAVA POZ");
             email.setSubject("Testing email");
             email.setMsg("Activation link:" + "\n\n http://localhost:9090/activate?code=" + user.getActivationCode());

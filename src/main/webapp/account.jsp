@@ -17,8 +17,8 @@
 <c:set scope="page" var="account" value="${user.accounts}"/>
 <div class="row">
     <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-        <A href="edit.html">Edit Profile</A>
-        <br>
+<%--        <A href="edit.html">Edit Profile</A>--%>
+<%--        <br>--%>
         <A href="/logoutServlet">Logout</A>
         <br>
         <p class=" text-info"><% out.println(java.time.LocalDateTime.now().toString());%></p>
